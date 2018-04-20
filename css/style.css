@@ -2,12 +2,11 @@
 body {
   margin: 0 auto;
   padding: 0;
+  background-color: #808e9b;
 }
 
 .board {
-  background-color: #808e9b;
   text-align: center;
-  height: 100vh;
 }
 
 .board h1 {
