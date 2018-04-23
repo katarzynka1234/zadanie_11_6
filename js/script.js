@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    //function random allow to get 10-digit number
+    //function random allow to get 10-digit number ID
     function randomString() {
         var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         var str = '';
@@ -10,26 +10,28 @@ $(document).ready(function(){
         return str;
     };
 
+    //new column create
     function Column(name) {
-        var self = this
+        var self = this;
 
         this.id = randomString();
         this.name = name;
         this.$element = createColumn();
 
+        //column construction
         function createColumn() {
             var $column = $('<div>').addClass('column');
             var $columnTitle = $('<h2>').addClass('column-title').text(self.name);
             var $columnCardList = $('<ul>').addClass('column-card-list');
             var $columnDelete = $('<button>').addClass('btn-delete').text('x');
-            var $columnAddCard = $('<button>').addClass('add-card').text('Add a card');
+            var $columnAddCard = $('<button>').addClass('add-card').text('Add a task');
 
             $columnDelete.click(function(){
                 self.removeColumn();
             });
 
             $columnAddCard.click(function(){
-                self.addCard(new Card(prompt('Enter the name of the card')));
+                self.addCard(new Card(prompt('Enter your task')));
             });
 
             $column.append($columnTitle)
@@ -111,6 +113,7 @@ $(document).ready(function(){
     board.addColumn(todoColumn);
     board.addColumn(doingColumn);
     board.addColumn(doneColumn);
+    
 
     // CREATING CARDS
     var card1 = new Card('New task');
